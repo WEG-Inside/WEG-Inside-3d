@@ -138,7 +138,7 @@ namespace WegInside
             run.EnableInClassList("active-control",running);
 
             bool showSpeed = motor.HasOperated && !detached;
-            context.style.display = detached || state.XRay || showSpeed ? DisplayStyle.Flex : DisplayStyle.None;
+            context.style.display = detached || state.XRay ? DisplayStyle.Flex : DisplayStyle.None;
             explodeTools.style.display = detached ? DisplayStyle.Flex : DisplayStyle.None;
             xrayTools.style.display = state.XRay ? DisplayStyle.Flex : DisplayStyle.None;
             speedTools.style.display = showSpeed ? DisplayStyle.Flex : DisplayStyle.None;

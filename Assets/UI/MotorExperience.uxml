@@ -73,12 +73,6 @@
                     <ui:Toggle name="hide-exterior" text="Ocultar carcaça" tooltip="Oculta a carcaça, as tampas e a proteção do ventilador"/>
                     <ui:Toggle name="expose-rotor" text="Expor rotor" tooltip="Oculta o estator para dar visibilidade ao rotor"/>
                 </ui:VisualElement>
-                <ui:VisualElement name="speed-tools" class="toolset">
-                    <ui:Label text="Velocidade ilustrativa" class="tool-label"/>
-                    <ui:Slider name="speed" low-value="0" high-value="1"/>
-                    <ui:Label name="velocity" text="48%" class="value"/>
-                    <ui:Button name="reset-simulation" text="Reiniciar simulação" class="control quiet"/>
-                </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement class="toolbar">
                 <ui:Button name="explode" text="Separar peças" class="control primary"/>
@@ -87,6 +81,12 @@
                 <ui:Button name="run" text="Iniciar motor" class="control"/>
                 <ui:VisualElement class="status-area">
                     <ui:Label name="status" text="Motor parado" class="status wrap"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="speed-tools" class="toolset">
+                    <ui:Label text="Velocidade ilustrativa" class="tool-label"/>
+                    <ui:Slider name="speed" low-value="0" high-value="1"/>
+                    <ui:Label name="velocity" text="48%" class="value"/>
+                    <ui:Button name="reset-simulation" text="Reiniciar simulação" class="control quiet"/>
                 </ui:VisualElement>
                 <ui:Button name="restore" text="Restaurar visualização" class="control quiet" tooltip="R restaura a câmera. Esc limpa a seleção."/>
             </ui:VisualElement>
