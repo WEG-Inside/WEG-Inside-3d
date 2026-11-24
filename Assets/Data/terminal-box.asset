@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c387e7e8f68de2438a66ede009c7731, type: 3}
+  m_Name: terminal-box
+  m_EditorClassIdentifier: WegInside.Runtime::WegInside.MotorPartData
+  id: terminal-box
+  group: "Caixa de liga\xE7\xE3o"
+  title: "Caixa de liga\xE7\xE3o"
+  category: "Conex\xE3o el\xE9trica"
+  description: "Compartimento superior com prensa-cabo, tampa e seis pontos de liga\xE7\xE3o representados de forma did\xE1tica."
+  function: "Abriga os terminais usados nas conex\xF5es el\xE9tricas do motor."
+  importance: "Organiza e protege a interface entre a alimenta\xE7\xE3o externa e os enrolamentos."

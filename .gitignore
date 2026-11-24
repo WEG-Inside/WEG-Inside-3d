@@ -1,0 +1,28 @@
+# Arquivos e pastas gerados pelo Unity
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Bb]uild/
+/[Bb]uilds/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+/sysinfo.txt
+/*.log
+
+# Arquivos locais de IDEs
+/.vs/
+/.idea/
+/ExportedObj/
+/*.csproj
+/*.sln
+/*.slnx
+/*.suo
+/*.user
+/*.userprefs
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini

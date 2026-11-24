@@ -1,0 +1,95 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="MotorExperience.uss"/>
+    <ui:VisualElement name="experience" class="experience" picking-mode="Ignore">
+        <ui:VisualElement name="header" class="header panel">
+            <ui:VisualElement class="brand">
+                <ui:VisualElement class="mark" picking-mode="Ignore">
+                    <ui:VisualElement class="mark-line"/>
+                    <ui:VisualElement class="mark-line"/>
+                    <ui:VisualElement class="mark-line"/>
+                </ui:VisualElement>
+                <ui:VisualElement>
+                    <ui:Label text="WEG Inside" class="brand-title"/>
+                    <ui:Label text="Por dentro das máquinas" class="subtitle"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="product">
+                    <ui:Label text="Motor W22" class="product-title"/>
+                    <ui:Label text="Indução trifásica" class="subtitle"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="mode">
+                <ui:VisualElement class="mode-dot"/>
+                <ui:Label name="mode" text="Motor montado"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement class="middle" picking-mode="Ignore">
+            <ui:VisualElement name="left-panel" class="left panel">
+                <ui:VisualElement class="side-heading">
+                    <ui:Label text="Componentes" class="section-title left-title"/>
+                    <ui:Button name="collapse" text="‹" tooltip="Recolher componentes" class="icon-button"/>
+                </ui:VisualElement>
+                <ui:ScrollView class="left-body" vertical-scroller-visibility="Auto">
+                    <ui:VisualElement name="component-list"/>
+                </ui:ScrollView>
+            </ui:VisualElement>
+            <ui:VisualElement name="viewport" class="viewport" picking-mode="Ignore">
+                <ui:Label text="Arraste no fundo para orbitar   ·   Scroll para zoom   ·   Arraste com o botão direito para deslocar" class="viewport-help" picking-mode="Ignore"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="info-panel" class="right panel">
+                <ui:Label text="Informações do componente" class="section-title"/>
+                <ui:ScrollView class="information-scroll" vertical-scroller-visibility="Auto">
+                    <ui:VisualElement name="intro" class="intro">
+                        <ui:Label text="Por dentro do W22" class="topic wrap"/>
+                        <ui:Label text="Explore como um motor de indução trifásico transforma energia elétrica em movimento." class="body wrap"/>
+                        <ui:Label text="Selecione uma peça no modelo ou na lista. Use a desmontagem ou o raio-X para ver os componentes internos." class="body wrap"/>
+                        <ui:Label text="Modelo didático inspirado na linha W22." class="note wrap"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="details" class="details">
+                        <ui:Label name="part-name" class="topic wrap"/>
+                        <ui:Label name="part-category" class="category wrap"/>
+                        <ui:Label name="part-description" class="body wrap"/>
+                        <ui:Label text="Função" class="detail-title"/>
+                        <ui:Label name="part-function" class="body wrap"/>
+                        <ui:Label text="Importância" class="detail-title"/>
+                        <ui:Label name="part-importance" class="body wrap"/>
+                        <ui:Button name="isolate" text="Isolar componente" class="control detail-action"/>
+                        <ui:Button name="focus" text="Focalizar componente" class="control detail-action"/>
+                        <ui:Button name="clear" text="Limpar seleção" class="control quiet detail-action"/>
+                    </ui:VisualElement>
+                </ui:ScrollView>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="footer" class="footer panel">
+            <ui:VisualElement name="context" class="context">
+                <ui:VisualElement name="explode-tools" class="toolset">
+                    <ui:Label text="Desmontagem" class="tool-label"/>
+                    <ui:Slider name="separation" low-value="0" high-value="1"/>
+                    <ui:Label name="progress" text="0%" class="value"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="xray-tools" class="toolset">
+                    <ui:Label text="Transparência" class="tool-label"/>
+                    <ui:Slider name="opacity" low-value="0.45" high-value="0.95"/>
+                    <ui:Label name="transparency" text="82%" class="value"/>
+                    <ui:Toggle name="hide-exterior" text="Ocultar carcaça" tooltip="Oculta a carcaça, as tampas e a proteção do ventilador"/>
+                    <ui:Toggle name="expose-rotor" text="Expor rotor" tooltip="Oculta o estator para dar visibilidade ao rotor"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="speed-tools" class="toolset">
+                    <ui:Label text="Velocidade ilustrativa" class="tool-label"/>
+                    <ui:Slider name="speed" low-value="0" high-value="1"/>
+                    <ui:Label name="velocity" text="48%" class="value"/>
+                    <ui:Button name="reset-simulation" text="Reiniciar simulação" class="control quiet"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="toolbar">
+                <ui:Button name="explode" text="Separar peças" class="control primary"/>
+                <ui:Button name="assemble" text="Remontar motor" class="control"/>
+                <ui:Button name="xray" text="Modo raio-X" class="control"/>
+                <ui:Button name="run" text="Iniciar motor" class="control"/>
+                <ui:VisualElement class="status-area">
+                    <ui:Label name="status" text="Motor parado" class="status wrap"/>
+                </ui:VisualElement>
+                <ui:Button name="restore" text="Restaurar visualização" class="control quiet" tooltip="R restaura a câmera. Esc limpa a seleção."/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

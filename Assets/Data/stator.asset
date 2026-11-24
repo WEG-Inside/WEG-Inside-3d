@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c387e7e8f68de2438a66ede009c7731, type: 3}
+  m_Name: stator
+  m_EditorClassIdentifier: WegInside.Runtime::WegInside.MotorPartData
+  id: stator
+  group: Estator
+  title: Estator
+  category: "Sistema eletromagn\xE9tico"
+  description: "Parte fixa do motor de indu\xE7\xE3o trif\xE1sico. O n\xFAcleo laminado aloja enrolamentos de cobre em ranhuras."
+  function: "As correntes trif\xE1sicas nos enrolamentos produzem um campo magn\xE9tico girante."
+  importance: "O campo girante induz correntes no rotor, condi\xE7\xE3o necess\xE1ria para que ele desenvolva torque."

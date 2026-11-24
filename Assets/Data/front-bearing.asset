@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c387e7e8f68de2438a66ede009c7731, type: 3}
+  m_Name: front-bearing
+  m_EditorClassIdentifier: WegInside.Runtime::WegInside.MotorPartData
+  id: front-bearing
+  group: Rolamentos
+  title: Rolamento frontal
+  category: "Apoio mec\xE2nico"
+  description: Conjunto de anel interno, anel externo e esferas ao redor do eixo.
+  function: "Sustenta o eixo e reduz o atrito, permitindo uma rota\xE7\xE3o mais est\xE1vel."
+  importance: "Mant\xE9m o eixo centrado no lado de acionamento, pr\xF3ximo ao acoplamento."

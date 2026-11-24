@@ -1,0 +1,1 @@
+{"name":"WegInside.Editor","rootNamespace":"WegInside.EditorTools","references":["WegInside.Runtime","Unity.RenderPipelines.Universal.Runtime"],"includePlatforms":["Editor"],"autoReferenced":false}

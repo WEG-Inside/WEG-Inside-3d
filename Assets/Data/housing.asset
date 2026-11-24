@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c387e7e8f68de2438a66ede009c7731, type: 3}
+  m_Name: housing
+  m_EditorClassIdentifier: WegInside.Runtime::WegInside.MotorPartData
+  id: housing
+  group: "Carca\xE7a"
+  title: "Carca\xE7a"
+  category: "Estrutura e refrigera\xE7\xE3o"
+  description: "Corpo fundido e aletado que envolve o conjunto eletromec\xE2nico."
+  function: "Protege os componentes internos e auxilia na dissipa\xE7\xE3o do calor gerado durante o funcionamento do motor."
+  importance: "A rigidez mant\xE9m o alinhamento do conjunto e as aletas aumentam a \xE1rea de troca t\xE9rmica."
