@@ -30,6 +30,58 @@ namespace WegInside.Tests
         MotorPart Part(string id) => motor.Parts.Single(part => part.Data.Id == id);
 
         [UnityTest]
+        public IEnumerator ShowingSimulationControlsKeepsTheCameraStill()
+        {
+            var orbit = Object.FindAnyObjectByType<OrbitCameraController>();
+            orbit.RenderView(true);
+            Vector3 position = orbit.transform.position;
+
+            Submit(ui.Root.Q<Button>("run"));
+            yield return null;
+            yield return null;
+            orbit.RenderView(true);
+
+            Assert.That(motor.State.Operation,Is.EqualTo(OperationState.Running));
+            Assert.That(ui.Root.Q("speed-tools").resolvedStyle.display,Is.EqualTo(DisplayStyle.Flex));
+            Assert.That(Vector3.Distance(position,orbit.transform.position),Is.LessThan(.001f));
+        }
+
+        [UnityTest]
+        public IEnumerator RotatingAnIsolatedComponentKeepsItsFramingStable()
+        {
+            var orbit = Object.FindAnyObjectByType<OrbitCameraController>();
+            motor.ToggleSimulation();
+            motor.ResetSimulation();
+            yield return null;
+            yield return null;
+
+            foreach (var part in motor.Parts.Where(part => part.Rotates))
+            {
+                motor.Select(part);
+                if (!motor.State.Isolated) motor.ToggleIsolation();
+                else motor.FocusSelection();
+                orbit.RenderView(true);
+                Vector3 position = orbit.transform.position;
+
+                float maxDrift = 0f;
+                motor.SetSpeed(1);
+                motor.ToggleSimulation();
+                float deadline = Time.realtimeSinceStartup + 2;
+                do
+                {
+                    yield return null;
+                    orbit.RenderView(true);
+                    maxDrift = Mathf.Max(maxDrift,Vector3.Distance(position,orbit.transform.position));
+                }
+                while (motor.Rotation.Angle < 95 && Time.realtimeSinceStartup < deadline);
+
+                Assert.That(motor.Rotation.Angle,Is.GreaterThanOrEqualTo(95f),part.name);
+                Assert.That(maxDrift,Is.LessThan(.001f),part.name);
+                motor.ResetSimulation();
+            }
+        }
+
+        [UnityTest]
         public IEnumerator ThreePartsRotateInSyncAndExplosionRestoresTheirHomeTransforms()
         {
             var rotor = Part("rotor");
@@ -132,12 +184,18 @@ namespace WegInside.Tests
             var settings = InputSystem.settings;
             var background = settings.backgroundBehavior;
             var editorBehavior = settings.editorInputBehaviorInPlayMode;
-            var mouse = InputSystem.AddDevice<Mouse>();
-            var keyboard = InputSystem.AddDevice<Keyboard>();
+            bool runInBackground = Application.runInBackground;
+            var existingMice = InputSystem.devices.OfType<Mouse>().Where(device => device.enabled).ToArray();
+            Mouse mouse = null;
+            Keyboard keyboard = null;
             try
             {
+                Application.runInBackground = true;
                 settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus;
                 settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
+                foreach (var device in existingMice) InputSystem.DisableDevice(device);
+                mouse = InputSystem.AddDevice<Mouse>();
+                keyboard = InputSystem.AddDevice<Keyboard>();
                 var orbit = Object.FindAnyObjectByType<OrbitCameraController>();
                 var area = ui.ViewportRegion;
                 var empty = new Vector2(Screen.width*(area.xMin+.075f),Screen.height*(area.yMax-.075f));
@@ -189,10 +247,12 @@ namespace WegInside.Tests
             }
             finally
             {
-                InputSystem.RemoveDevice(mouse);
-                InputSystem.RemoveDevice(keyboard);
+                if (mouse != null) InputSystem.RemoveDevice(mouse);
+                if (keyboard != null) InputSystem.RemoveDevice(keyboard);
+                foreach (var device in existingMice) InputSystem.EnableDevice(device);
                 settings.backgroundBehavior = background;
                 settings.editorInputBehaviorInPlayMode = editorBehavior;
+                Application.runInBackground = runInBackground;
             }
         }
 
